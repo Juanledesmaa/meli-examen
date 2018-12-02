@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentAmountViewController" customModule="meli_examen" customModuleProvider="target">
+            <connections>
+                <outlet property="amountTextField" destination="XTO-mv-F2o" id="dA3-Uv-SuI"/>
+                <outlet property="btnContinuar" destination="IPj-Fq-1ap" id="v2u-WV-2Nd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese un monto:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-Yl-oZF">
+                    <rect key="frame" x="60" y="268.5" width="255" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="EaV-Su-hqH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.1215686275" green="0.18823529410000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ 0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTO-mv-F2o">
+                    <rect key="frame" x="80" y="318.5" width="215" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="J4E-nF-qsG"/>
+                    </constraints>
+                    <color key="textColor" red="0.1215686275" green="0.18823529410000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPj-Fq-1ap" customClass="CustomButton" customModule="meli_examen" customModuleProvider="target">
+                    <rect key="frame" x="80" y="388.5" width="215" height="40"/>
+                    <color key="backgroundColor" red="0.1215686275" green="0.18823529410000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="NmI-Qs-3wQ"/>
+                    </constraints>
+                    <state key="normal" title="Continuar">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnContinuarPressed:" destination="-1" eventType="touchUpInside" id="0Da-RX-Kbe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XTO-mv-F2o" secondAttribute="trailing" constant="80" id="43f-dY-bVC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ezw-Yl-oZF" secondAttribute="trailing" constant="60" id="8ef-Nv-vnU"/>
+                <constraint firstItem="IPj-Fq-1ap" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="Iv4-us-3XN"/>
+                <constraint firstItem="IPj-Fq-1ap" firstAttribute="top" secondItem="XTO-mv-F2o" secondAttribute="bottom" constant="40" id="S04-9N-sjW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IPj-Fq-1ap" secondAttribute="trailing" constant="80" id="VC2-1y-rrd"/>
+                <constraint firstItem="XTO-mv-F2o" firstAttribute="top" secondItem="ezw-Yl-oZF" secondAttribute="bottom" constant="20" id="ahj-te-uys"/>
+                <constraint firstItem="XTO-mv-F2o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="nnC-5c-DxT"/>
+                <constraint firstItem="ezw-Yl-oZF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="vCg-hi-aIp"/>
+                <constraint firstItem="XTO-mv-F2o" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="y9u-Dj-DzV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>
