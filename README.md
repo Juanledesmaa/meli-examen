@@ -1,5 +1,5 @@
 # Meli-Examen
-A project repository that containts the IOS app "Meli-Examen", this app features a method where you can choose a list of avaible methods to make and payment and though our web services we will advice you the best way to make this payment.
+A project repository that containts the IOS app "Meli-Examen", this app features a way where you can choose a list of available methods to make your payment and through our web services we will advice you the best way to make this payment.
 
 This project is using these third party Libraries 
 
