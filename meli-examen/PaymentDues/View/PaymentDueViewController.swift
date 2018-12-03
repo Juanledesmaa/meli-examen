@@ -11,7 +11,7 @@ import UIKit
 class PaymentDueViewController: BaseViewController {
 
     @IBOutlet weak var pickerTextField: PickerTextField!
-    var installments = [PaymentDueModel]()
+    var installments : [PaymentDueModel]?
     var viewModel: PaymentDueViewModelDelegate?
     private let picker = UIPickerView()
     var selectedInstallment: PaymentDueModel?
@@ -54,23 +54,33 @@ extension PaymentDueViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return installments.count
+        return installments?.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.installments[row].recommended_message
+        return self.installments?[row].recommended_message
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.pickerTextField.text = self.installments[row].recommended_message
+        self.pickerTextField.text = self.installments?[row].recommended_message
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case self.pickerTextField:
+            
+            
             let selectedValue = self.picker.selectedRow(inComponent: 0)
-            self.selectedInstallment = self.installments[selectedValue]
-            self.pickerTextField.text = self.selectedInstallment?.recommended_message
+            guard let installment = self.installments?[selectedValue] else {
+                let alert = UIAlertController(title: "Alerta", message: "No hay metodo de pago en cuotas para el banco seleccionado. Intente con otro", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+                return
+            }
+            
+            self.selectedInstallment = installment
+            self.pickerTextField.text = installment.recommended_message
         default:
             break
         }
@@ -81,7 +91,7 @@ extension PaymentDueViewController: PaymentDueViewModelView {
     func showInstallments(data: [PaymentDueModel]) {
         self.installments = data
         
-        guard !(self.installments.isEmpty) else {
+        guard ((self.installments) != nil) else {
             let alert = UIAlertController(title: "Alerta", message: "No hay metodo de pago en cuotas para el banco seleccionado. Intente con otro", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
